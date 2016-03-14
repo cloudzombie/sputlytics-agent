@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Sputlytics agent is a client-side script responsible to catch browser's data.">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>Sputlytics-agent</title>
+    <meta charset="UTF-8">
+    <title>Sputlytics-agent by sputlytics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">Sputlytics-agent</h1>
-          <h3 id="project_tagline">Sputlytics agent is a client-side script responsible to catch browser&#39;s data.</h3>
-        </header>
-    </div>
+    <section class="page-header">
+      <h1 class="project-name">Sputlytics-agent</h1>
+      <h2 class="project-tagline">Sputlytics agent is a client-side script responsible to catch browser&#39;s data.</h2>
+      <a href="https://github.com/sputlytics/sputlytics-agent" class="btn">View on GitHub</a>
+      <a href="https://github.com/sputlytics/sputlytics-agent/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sputlytics/sputlytics-agent/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <section class="main-content">
+      <h1>
+<a id="sputlytics-agent" class="anchor" href="#sputlytics-agent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sputlytics agent</h1>
+
+<p>Sputlytics agent is a client-side script responsible to catch browser's data.</p>
+
 <h2>
 <a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h2>
 
@@ -35,31 +40,20 @@
 <span class="pl-s1">      i<span class="pl-k">=</span><span class="pl-smi">p</span>.<span class="pl-c1">createElement</span>(u);k<span class="pl-k">=</span><span class="pl-smi">p</span>.<span class="pl-c1">getElementsByTagName</span>(u)[<span class="pl-c1">0</span>];<span class="pl-smi">i</span>.<span class="pl-smi">async</span><span class="pl-k">=</span><span class="pl-c1">1</span>;<span class="pl-smi">i</span>.<span class="pl-smi">src</span><span class="pl-k">=</span>t;<span class="pl-smi">k</span>.<span class="pl-c1">parentNode</span>.<span class="pl-c1">insertBefore</span>(i,k)</span>
 <span class="pl-s1">      })(<span class="pl-c1">window</span>,<span class="pl-c1">document</span>,<span class="pl-s"><span class="pl-pds">"</span>script<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>//sputlytics.com/agent.js<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>spa<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">      <span class="pl-en">spa</span>(<span class="pl-s"><span class="pl-pds">"</span>init<span class="pl-pds">"</span></span>, [<span class="pl-s"><span class="pl-pds">"</span>domain<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>clientKey<span class="pl-pds">"</span></span>]);</span>
+<span class="pl-s1">      <span class="pl-en">spa</span>(<span class="pl-s"><span class="pl-pds">"</span>init<span class="pl-pds">"</span></span>, {domain<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://myweb.site<span class="pl-pds">"</span></span>, clientKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>clientKey<span class="pl-pds">"</span></span>});</span>
 <span class="pl-s1">      <span class="pl-en">spa</span>(<span class="pl-s"><span class="pl-pds">"</span>pageview<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
   &lt;/<span class="pl-ent">body</span>&gt;
 &lt;/<span class="pl-ent">html</span>&gt;</pre></div>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Sputlytics-agent maintained by <a href="https://github.com/sputlytics">sputlytics</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sputlytics/sputlytics-agent">Sputlytics-agent</a> is maintained by <a href="https://github.com/sputlytics">sputlytics</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    <script>
-      var url = "//" + window.location.host + window.location.pathname + "agent.js";
-      (function(s,p,u,t,n,i,k){
-      s['Sputlytics']=n;s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)},
-      i=p.createElement(u);k=p.getElementsByTagName(u)[0];i.async=1;i.src=t;k.parentNode.insertBefore(i,k)
-      })(window,document,"script",url,"spa");
+    </section>
 
-      spa("init", {domain: "https://sputlytics.herokuapp.com", clientKey: "clientKey"});
-      spa("pageview");
-    </script>
-
+  
   </body>
 </html>

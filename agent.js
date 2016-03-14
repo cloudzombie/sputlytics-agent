@@ -1,9 +1,9 @@
 (function() {
   var args = this[this.Sputlytics].q;
   var SputlyticsAgent = {
-    init: function(domain, clientKey) {
-      this.domain = domain;
-      this.clientKey = clientKey;
+    init: function(params) {
+      this.domain = params.domain;
+      this.clientKey = params.clientKey;
     },
     pageview: function() {
       var k = this.clientKey;
@@ -16,6 +16,6 @@
     }
   }
   for(var i = 0, m = args.length; i < m; i++) {
-    SputlyticsAgent[args[i][0]].apply(args[i][1]);
+    SputlyticsAgent[args[i][0]](args[i][1]);
   }
 })();

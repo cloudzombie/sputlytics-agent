@@ -18,7 +18,7 @@ To use this script, put the script below into your website:
       i=p.createElement(u);k=p.getElementsByTagName(u)[0];i.async=1;i.src=t;k.parentNode.insertBefore(i,k)
       })(window,document,"script","//sputlytics.com/agent.js","spa");
 
-      spa("init", ["domain","clientKey"]);
+      spa("init", {domain: "https://myweb.site", clientKey: "clientKey"});
       spa("pageview");
     </script>
   </body>

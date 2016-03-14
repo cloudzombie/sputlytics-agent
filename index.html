@@ -57,7 +57,7 @@
       i=p.createElement(u);k=p.getElementsByTagName(u)[0];i.async=1;i.src=t;k.parentNode.insertBefore(i,k)
       })(window,document,"script",url,"spa");
 
-      spa("init", ["https://sputlytics.herokuapp.com","clientKey"]);
+      spa("init", {domain: "https://sputlytics.herokuapp.com", clientKey: "clientKey"});
       spa("pageview");
     </script>
 

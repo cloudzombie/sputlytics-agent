@@ -24,3 +24,8 @@ To use this script, put the script below into your website:
   </body>
 </html>
 ```
+
+## About
+
+Caio Ribeiro Pereira  
+Lucas N. Munhoz

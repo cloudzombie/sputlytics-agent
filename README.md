@@ -1,6 +1,6 @@
 # Sputlytics agent
 
-Sputlytics agent is a client-side script responsible to catch browsers information.
+Sputlytics agent is a client-side script responsible to catch browser's data.
 
 ## Setup
 

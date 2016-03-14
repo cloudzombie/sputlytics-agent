@@ -1,0 +1,7 @@
+{
+  "name": "Sputlytics-agent",
+  "tagline": "Sputlytics agent is a client-side script responsible to catch browser's data.",
+  "body": "# Sputlytics agent\r\n\r\nSputlytics agent is a client-side script responsible to catch browser's data.\r\n\r\n## Setup\r\n\r\nTo use this script, put the script below into your website:\r\n\r\n``` html\r\n<html>\r\n  <head>\r\n    <title>My website</title>\r\n  </head>\r\n  <body>\r\n    <script>    \r\n      (function(s,p,u,t,n,i,k){\r\n      s['Sputlytics']=n;s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)},\r\n      i=p.createElement(u);k=p.getElementsByTagName(u)[0];i.async=1;i.src=t;k.parentNode.insertBefore(i,k)\r\n      })(window,document,\"script\",\"//sputlytics.com/agent.js\",\"spa\");\r\n\r\n      spa(\"init\", [\"domain\",\"clientKey\"]);\r\n      spa(\"pageview\");\r\n    </script>\r\n  </body>\r\n</html>\r\n```",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

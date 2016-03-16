@@ -16,7 +16,7 @@ To use this script, put the script below into your website:
       (function(s,p,u,t,n,i,k){
       s['Sputlytics']=n;s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)},
       i=p.createElement(u);k=p.getElementsByTagName(u)[0];i.async=1;i.src=t;k.parentNode.insertBefore(i,k)
-      })(window,document,"script","//sputlytics.com/agent.js","spa");
+      })(window,document,"script","//cdn.sputlytics.com/agent.js","spa");
 
       spa("init", {domain: "https://myweb.site", clientKey: "clientKey"});
       spa("pageview");

@@ -641,11 +641,12 @@
       var w = window.screen.width;
       var h = window.screen.height;
       var l = navigator.language;
+      var r = document.referrer;
       var v = document.cookie.replace(/(?:(?:^|.*;\s*)spa\s*\=\s*([^;]*).*$)|^.*$/, "$1");
       if (!v) {
         v = localStorage.getItem("spa") || "";
       }
-      var q = "?w="+w+"&h="+h+"&l="+l+"&k="+k+"&v="+v;
+      var q = "?w="+w+"&h="+h+"&l="+l+"&k="+k+"&v="+v+"&r="+r;
       reqwest({
         url: this.domain + "/ping" + q,
         method: "get",

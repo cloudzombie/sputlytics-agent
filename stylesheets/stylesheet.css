@@ -61,15 +61,15 @@ a {
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 2rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; } }
+    padding: 1.5rem; } }
 
 @media screen and (max-width: 42em) {
   .page-header {
-    padding: 2rem 1rem; } }
+    padding: 1rem; } }
 
 .project-name {
   margin-top: 0;
@@ -221,8 +221,8 @@ a {
     font-size: 1rem; } }
 
 .site-footer {
-  padding-top: 2rem;
-  margin-top: 2rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
   border-top: solid 1px #eff0f1; }
 
 .site-footer-owner {

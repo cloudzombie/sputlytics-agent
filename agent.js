@@ -629,41 +629,61 @@
   return reqwest
 });
 
-(function() {
+(function(window) {
   var args = this[this.Sputlytics].q;
   var SputlyticsAgent = {
     init: function(params) {
       this.domain = params.domain;
       this.clientKey = params.clientKey;
+      this.currentVisit = null;
     },
     pageview: function() {
-      var k = this.clientKey;
+      var self = this;
+      var k = self.clientKey;
       var w = window.screen.width;
       var h = window.screen.height;
       var l = navigator.language;
       var r = document.referrer;
-      var v = document.cookie.replace(/(?:(?:^|.*;\s*)spa\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-      if (!v) {
-        v = localStorage.getItem("spa") || "";
-      }
+      var v = self.getVisitor();
       var q = "?w="+w+"&h="+h+"&l="+l+"&k="+k+"&v="+v+"&r="+r;
       reqwest({
-        url: this.domain + "/ping" + q,
+        url: self.domain + "/ping" + q,
         method: "get",
         success: function(res) {
-          if (!v) {
-            document.cookie = "spa="+ res.responseText +"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-            localStorage.setItem("spa", res.responseText);
-          }
+          self.setVisitor(res.responseText);
+          self.currentVisit = res.responseText;
         },
         error: function(err) {
-
+          console.log("sputlytics-agent pong error:");
+          console.log(err);
         }
+      });
+    },
+    getVisitor: function() {
+      var visitor = document.cookie.replace(/(?:(?:^|.*;\s*)spa\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      if (!visitor) {
+        visitor = localStorage.getItem("spa") || "";
+      }
+      return visitor;
+    },
+    setVisitor: function(visitorId) {
+      if (!this.getVisitor()) {
+        document.cookie = "spa="+ res.responseText +"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+        localStorage.setItem("spa", res.responseText);
+      }
+    },
+    closeVisitor: function() {
+      var q = "?k="+ this.clientKey +"&v="+ this.currentVisit;
+      reqwest({
+        url: this.domain + "/pong" + q,
+        method: "get"
       });
     }
   }
-
+  window.onbeforeunload = function() {
+    SputlyticsAgent.closeVisitor();
+  };
   for(var i = 0, m = args.length; i < m; i++) {
     SputlyticsAgent[args[i][0]](args[i][1]);
   }
-})();
+})(window);

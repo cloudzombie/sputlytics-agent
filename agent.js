@@ -676,10 +676,8 @@
     closeVisitor: function() {
       var q = "?k="+ clientKey;
       q += currentVisit ? "&v="+ currentVisit : "";
-      reqwest({
-        url: domain + "/pong" + q,
-        method: "get"
-      });
+      var img = new Image();
+      img.src = domain + "/pong" + q;
     }
   }
   for(var i = 0, m = args.length; i < m; i++) {

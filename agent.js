@@ -676,7 +676,6 @@
     closeVisitor: function() {
       var q = "?k="+ clientKey;
       q += currentVisit ? "&v="+ currentVisit : "";
-      alert(q)
       reqwest({
         url: domain + "/pong" + q,
         method: "get"

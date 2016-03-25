@@ -654,7 +654,7 @@
           self.currentVisit = res.responseText;
         },
         error: function(err) {
-          console.log("sputlytics-agent pong error:");
+          console.log("sputlytics-agent error:");
           console.log(err);
         }
       });
@@ -668,8 +668,8 @@
     },
     setVisitor: function(visitorId) {
       if (!this.getVisitor()) {
-        document.cookie = "spa="+ res.responseText +"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-        localStorage.setItem("spa", res.responseText);
+        document.cookie = "spa="+ visitorId +"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+        localStorage.setItem("spa", visitorId);
       }
     },
     closeVisitor: function() {

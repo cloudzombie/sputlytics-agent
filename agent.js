@@ -631,27 +631,28 @@
 
 (function(window) {
   var args = this[this.Sputlytics].q;
+  var domain, clientKey, currentVisit;
   var SputlyticsAgent = {
     init: function(params) {
-      this.domain = params.domain;
-      this.clientKey = params.clientKey;
-      this.currentVisit = null;
+      domain = params.domain;
+      clientKey = params.clientKey;
+      currentVisit = null;
     },
     pageview: function() {
-      var self = this;
-      var k = self.clientKey;
-      var w = window.screen.width;
-      var h = window.screen.height;
-      var l = navigator.language;
-      var r = document.referrer;
-      var v = self.getVisitor();
-      var q = "?w="+w+"&h="+h+"&l="+l+"&k="+k+"&v="+v+"&r="+r;
+      var visitor = SputlyticsAgent.getVisitor();
+      var referrer = document.referrer;
+      var q = "?k=" + clientKey;
+      q += "&w=" + window.screen.width;
+      q += "&h=" + window.screen.height;
+      q += "&l=" + navigator.language;
+      q += referrer ? "&r=" + referrer : "";
+      q += visitor ? "&v=" + visitor : "";
       reqwest({
-        url: self.domain + "/ping" + q,
+        url: domain + "/ping" + q,
         method: "get",
         success: function(res) {
-          self.setVisitor(res.responseText);
-          self.currentVisit = res.responseText;
+          currentVisit = res.responseText;
+          SputlyticsAgent.setVisitor(res.responseText);
         },
         error: function(err) {
           console.log("sputlytics-agent error:");
@@ -667,23 +668,25 @@
       return visitor;
     },
     setVisitor: function(visitorId) {
-      if (!this.getVisitor()) {
+      if (!SputlyticsAgent.getVisitor()) {
         document.cookie = "spa="+ visitorId +"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
         localStorage.setItem("spa", visitorId);
       }
     },
     closeVisitor: function() {
-      var q = "?k="+ this.clientKey +"&v="+ this.currentVisit;
+      var q = "?k="+ clientKey;
+      q += currentVisit ? "&v="+ currentVisit : "";
+      alert(q)
       reqwest({
-        url: this.domain + "/pong" + q,
+        url: domain + "/pong" + q,
         method: "get"
       });
     }
   }
-  window.onbeforeunload = function() {
-    SputlyticsAgent.closeVisitor();
-  };
   for(var i = 0, m = args.length; i < m; i++) {
     SputlyticsAgent[args[i][0]](args[i][1]);
   }
+  window.onbeforeunload = function() {
+    SputlyticsAgent.closeVisitor();
+  };
 })(window);

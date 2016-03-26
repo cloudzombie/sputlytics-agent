@@ -683,7 +683,8 @@
   for(var i = 0, m = args.length; i < m; i++) {
     SputlyticsAgent[args[i][0]](args[i][1]);
   }
-  window.onbeforeunload = function() {
+  window.addEventListener("beforeunload", function() {
     SputlyticsAgent.closeVisitor();
-  };
+    return null;
+  });
 })(window);

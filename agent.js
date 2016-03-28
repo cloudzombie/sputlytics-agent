@@ -634,7 +634,7 @@
   var domain, clientKey, currentVisit;
   var SputlyticsAgent = {
     init: function(params) {
-      domain = params.domain;
+      domain = params.domain.replace(/\/$/, "");
       clientKey = params.clientKey;
       currentVisit = null;
     },

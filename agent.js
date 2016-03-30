@@ -687,4 +687,8 @@
     SputlyticsAgent.closeVisitor();
     return null;
   });
+  window.addEventListener("unload", function() {
+    SputlyticsAgent.closeVisitor();
+    return null;
+  });
 })(window);
